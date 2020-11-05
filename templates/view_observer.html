@@ -1,0 +1,52 @@
+{% extends "super_layout.html" %}
+{% block content %}
+
+
+
+
+<section>
+    <div class="container-fluid">
+        <!-- Page Header-->
+        <header>
+            <h1 class="h3 display">Observers</h1>
+        </header>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>List of Observers </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Full Name Name</th>
+                                        <th>Telephone</th>
+                                        <th>Email</th>
+                                        <th>Constituency</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for row in observer %}
+                                    <tr>
+                                        <td>{{row.0}}</td>
+                                        <td>{{row.1}}</td>
+                                        <td>{{row.2}}</td>
+                                        <td>{{row.3}}</td>
+                                    </tr>
+                                   
+                                </tbody>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

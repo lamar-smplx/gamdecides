@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ title }}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="../static/vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="../static/css/fontastic.css">
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="../static/https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <!-- jQuery Circle-->
+    <link rel="stylesheet" href="../static/css/grasp_mobile_progress_circle-1.0.0.min.css">
+    <!-- Custom Scrollbar-->
+    <link rel="stylesheet" href="../static/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="../static/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="../static/img/favicon.ico">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+
+<body>
+    <!-- Side Navbar -->
+    <nav class="side-navbar">
+        <div class="side-navbar-wrapper">
+            <!-- Sidebar Header    -->
+            <div class="sidenav-header d-flex align-items-center justify-content-center">
+                <!-- User Info-->
+                <div class="sidenav-header-inner text-center"><img src="../static/img/avatar-7.jpg" alt="person"
+                        class="img-fluid rounded-circle">
+                        <h2 class="h5">{{session['name']}}</h2><span>{{session['type']}}</span>
+                </div>
+                <!-- Small Brand information, appears on minimized sidebar-->
+                <div class="sidenav-header-logo"><a href="super_home" class="brand-small text-center">
+                        <strong>S</strong><strong class="text-primary">O</strong></a></div>
+            </div>
+
+
+            <!-- Sidebar Navigation Menus-->
+            <div class="main-menu">
+                <!-- <h5 class="sidenav-heading">Main</h5> -->
+                
+                <ul id="side-main-menu" class="side-menu list-unstyled">
+
+                    <li><a href="super_home"  class="text-primary"> 
+                        <h1><strong><i class="icon-home"></i> HOME </h1></strong>
+                     </a></li>
+                    <li><a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse"> <i
+                                class="icon-interface-windows"></i>Constituency</a>
+                        <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
+
+                            <li><a href="add_constituency"> <i class="icon-form"></i> Add  </a></li>
+                            <li><a href="view_constituency"> <i class="fa fa-bar-chart"></i>View </a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#exampledropdownDropdown2" aria-expanded="false" data-toggle="collapse"> <i
+                                class="icon-interface-windows"></i>Observers</a>
+                        <ul id="exampledropdownDropdown2" class="collapse list-unstyled ">
+
+                            <li><a href="add_observer"> <i class="icon-form"></i>Add</a></li>
+                            <li><a href="view_observer"> <i class="fa fa-bar-chart"></i>View</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#exampledropdownDropdown3" aria-expanded="false" data-toggle="collapse"> <i
+                                class="icon-interface-windows"></i>Polling Station</a>
+                        <ul id="exampledropdownDropdown3" class="collapse list-unstyled ">
+
+                            <li><a href="view_super_polls"> <i class="icon-form"></i>View</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="admin-menu">
+                <h5 class="sidenav-heading">Second menu</h5>
+                <ul id="side-main-menu" class="side-menu list-unstyled">
+                    <li><a href="super_reports"> <i class="icon-form"></i>Reports </a></li>
+                    <!-- <li><a href="super_tables"> <i class="icon-grid"></i>Tables </a></li> -->
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page">
+        <!-- navbar-->
+        <header class="header">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <div class="navbar-holder d-flex align-items-center justify-content-between">
+                        <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars">
+                                </i></a><a href="index" class="navbar-brand">
+                                <div class="brand-text d-none d-md-inline-block"><span>Super  </span><strong
+                                        class="text-primary">Observer</strong></div>
+                            </a></div>
+                        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+
+                            <!-- Log out-->
+                            <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link logout"> <span
+                                        class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Breadcrumb-->
+        <div class="breadcrumb-holder">
+            <div class="container-fluid">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item active">Items </li>
+                </ul>
+            </div>
+        </div>
+        <section class="forms">
+            <div class="container-fluid">
+
+            </div>
+    </div>
+    </section>
+    <section id="forms">
+        <div class="col-md-8" style="margin-left: 20% !important; margin-top: 10%;">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+        </div>
+
+
+    </section>
+     
+
+    </div>
+    <!-- JavaScript files-->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+    <script src="../static/vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="../static/vendor/chart.js/Chart.min.js"></script>
+    <script src="../static/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="../static/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../static/js/charts-home.js"></script>
+    <!-- Main File-->
+    <script src="../static/js/front.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> 
+    
+</body>
+
+</html>

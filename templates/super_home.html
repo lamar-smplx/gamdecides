@@ -1,0 +1,271 @@
+{% extends "super_layout.html" %}
+{% block content %}
+<section class="forms">
+    <div class="container-fluid">
+   
+      </div>
+    </div>
+  </section>
+<div class="page">
+    <!-- navbar-->
+    <header class="header">
+      <nav class="navbar">
+        <div class="container-fluid">
+          <div class="navbar-holder d-flex align-items-center justify-content-between">
+            <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="index.html" class="navbar-brand">
+                <div class="brand-text d-none d-md-inline-block"><span>Super </span><strong class="text-primary">Observer</strong></div></a></div>
+            <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+             
+              <!-- Log out-->
+              <li class="nav-item"><a href="login.html" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- Counts Section -->
+    <section class="dashboard-counts section-padding">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Count item widget-->
+          <div class="col-xl-3 col-md-4 col-6">
+            <div class="wrapper count-title d-flex">
+              <div class="icon"><i class="icon-user"></i></div>
+              <div class="name"><strong class="text-uppercase">Constituency</strong>
+                <div class="count-number">{{count_cons}}</div>
+              </div>
+            </div>
+          </div>
+          <!-- Count item widget-->
+          <div class="col-xl-3 col-md-4 col-6">
+            <div class="wrapper count-title d-flex">
+              <div class="icon"><i class="icon-padnote"></i></div>
+              <div class="name"><strong class="text-uppercase">Observers</strong>
+                <div class="count-number">{{count_obs}}</div>
+              </div>
+            </div>
+          </div>
+          <!-- Count item widget-->
+          <div class="col-xl-3 col-md-4 col-6">
+            <div class="wrapper count-title d-flex">
+              <div class="icon"><i class="icon-check"></i></div>
+              <div class="name"><strong class="text-uppercase">Stations</strong>
+                <div class="count-number">{{count_polls}}</div>
+              </div>
+            </div>
+          </div>
+          <!-- Count item widget-->
+          <div class="col-xl-3 col-md-4 col-6">
+            <div class="wrapper count-title d-flex">
+              <div class="icon"><i class="icon-bill"></i></div>
+              <div class="name"><strong class="text-uppercase">Local Observers</strong>
+                <div class="count-number">{{count_local}}</div>
+              </div>
+            </div>
+          </div>
+          
+           <!-- Count item widget
+           <div class="col-xl-3 col-md-4 col-6">
+            <div class="wrapper count-title d-flex">
+              <div class="icon"><i class="icon-bill"></i></div>
+              <div class="name"><strong class="text-uppercase">Election</strong><span><br/></span>
+                <div class="count-number">REGIONAL</div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+    <!-- Header Section-->
+    <section class="dashboard-header section-padding"  >
+      <div class="container-fluid" >
+        <div class="row d-flex align-items-md-stretch" style="margin-bottom: 5%; display: inline-flexbox;">
+         
+          <!-- Pie Chart-->
+          <div class="col-lg- col-md-6 flex-lg-last flex-md-first align-self-baseline" >
+            
+              
+              
+              <div id="chartContainer" style="height: 300px; width: auto;">
+                
+              </div>
+  
+              
+            
+          </div>
+          
+          <!-- Line Chart -->
+          <div class="col-lg-6 col-md-6 flex-lg-last flex-md-first align-self-baseline" >
+           
+              
+              
+              
+                <div id="pieChart" style="height: 300px; width: auto;" ></div>
+              
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Statistics Section-->
+    <section class="statistics" style="margin-top: 5%;">
+      <div class="container-fluid">
+        <div class="row d-flex">
+          <div class="col-lg-4">
+            <!-- Income-->
+            <div class="card income text-center">
+              <h2 class="display h4">All Entries</h2>
+              <div class="icon"><i class="icon-line-chart"></i></div>
+              <div class="number">126,418</div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <!-- Monthly Usage-->
+            <div class="card data-usage">
+              <h2 class="display h4">Hourly Usage</h2>
+              <div class="row d-flex align-items-center">
+                <div class="col-sm-6">
+                  <div id="progress-circle" class="d-flex align-items-center justify-content-center"></div>
+                </div>
+                <div class="col-sm-6"><strong class="text-primary">20</strong><small>times</small><span>Per hour</span></div>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <!-- User Actibity-->
+            <div class="card user-activity">
+              <h2 class="display h4">User Activity</h2>
+              <div class="number">210</div>
+              <h3 class="h4 display">Local Observers</h3>
+              <div class="progress">
+                <div role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar bg-primary"></div>
+              </div>
+              <div class="page-statistics d-flex justify-content-between">
+                <div class="page-statistics-left"><span>Pages Visits</span><strong>230</strong></div>
+                <div class="page-statistics-right"><span>New Visits</span><strong>73.4%</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+   
+    </section>
+    
+  </div>
+  <script>
+  
+window.onload = function () {
+  var poll1 = {{voting1}}
+  var poll2 = {{voting2}}
+  var poll3 = {{voting3}}
+  var poll4 = {{voting4}}
+  var poll5 = {{voting5}}
+  var poll6 = {{voting6}}
+  var poll7 = {{voting7}}
+  var poll8 = {{voting8}}
+  var poll9 = {{voting9}}
+
+var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    theme: "light1", // "light1", "light2", "dark1", "dark2"
+    title: {
+        text: "Voting Forms"
+    },
+    subtitles: [{
+        
+        fontSize: 12
+    }],
+    axisY: {
+        title: "Voting Forms filled by Polls",
+        scaleBreaks: {
+            customBreaks: [{
+                startValue: 15,
+                endValue: 50
+            }]
+        }
+    },
+    data: [{
+        type: "column",
+        yValueFormatString: "#",
+        dataPoints: [
+            { label: "POLL1", y: poll1},
+            { label: "POLL2", y: poll2 },
+            { label: "POLL3", y: poll3 },
+            { label: "POLL4", y: poll4 },
+            { label: "POLL5", y: poll5 },
+            { label: "POLL6", y: poll6 },
+            { label: "POLL7", y: poll7 },
+            { label: "POLL8", y: poll8 },
+            { label: "POLL9", y: poll9 }	
+
+        ]
+    }]
+});
+chart.render();
+
+
+
+
+  var pie_opening = {{count_opening}}
+  var pie_voting = {{count_voting}}
+  var pie_closing = {{count_closing}}
+  var total = pie_closing + pie_opening + pie_voting
+  
+  pie_voting = parseInt(pie_voting/ total * 100)
+  pie_opening = parseInt(pie_opening/ total * 100)
+  pie_closing = parseInt(pie_closing/ total * 100)
+var chart = new CanvasJS.Chart("pieChart", {
+	// exportEnabled: true,
+	animationEnabled: true,
+	title:{
+		text: "Forms"
+	},
+	legend:{
+		cursor: "pointer",
+		itemclick: explodePie
+	},
+	data: [{
+		type: "pie",
+		showInLegend: true,
+		toolTipContent: "{name}: <strong>{y}%</strong>",
+		indexLabel: "{name} - {y}%",
+		dataPoints: [
+			{ y: pie_opening, name: "Opening", exploded: true },
+			{ y: pie_voting ,name: "Voting",  exploded: true },
+			{ y: pie_closing ,name: "Closing", exploded: true},
+			
+			// { y: 7, name: "University" },
+			// { y: 17, name: "Executive" },
+			// { y: 22, name: "Other Local Assistance"}
+		]
+	}]
+});
+chart.render();
+}
+
+function explodePie (e) {
+	if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+	} else {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+	}
+	e.chart.render();
+
+}
+$(document).ready(function () {
+// ------------------------------------------------------- //
+    // Jquery Progress Circle
+    // ------------------------------------------------------ //
+    var progress_circle = $("#progress-circle").gmpc({
+        color: brandPrimary,
+        line_width: 5,
+        percent: 80
+    });
+    progress_circle.gmpc('animate', 85, 3000);});
+</script>
+
+{% endblock content %}

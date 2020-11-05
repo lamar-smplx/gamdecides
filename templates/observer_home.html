@@ -1,0 +1,31 @@
+{% extends "observer_layout.html" %}
+{% block content %}
+<section class="statistics mt-5">
+  <div class="container-fluid">
+    <div class="row d-flex ">
+      <div class="col-lg-4 col-md-4 col-sm-4"><a style="text-decoration: none;color:black" class="ex2" href="view_local">
+        <div class="card income text-center shadow p-3" style='min-height:60%'>
+          <div ><strong class="text-primary">Local<br> Observers</strong></div>
+          <div class="icon"><i class="icon-user"></i></div>
+          <p>These are the people that are assigned to the polling stations in a constituency.</p><p>Their main role is to fill the opening, voting and closing forms</p>
+        </div></a>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4"><a style="text-decoration: none;color:black" class="ex2" href="view_polls">
+          <div class="card income text-center shadow p-3" style='min-height:60%'>
+            <div><strong class="text-primary">Polling<br> Stations</strong></div>
+            <div class="icon"><i class="icon-list-1"></i></div>
+            <p>Each constituency ha numerous polling stations</p><p>Ther is a local observer posted to each polling station for assestment</p>
+          </div></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4"><a style="text-decoration: none;color:black" class="ex2" href="local_reports">
+          <div class="card income text-center shadow p-3" style='min-height:60%'>
+            <div ><strong class="text-primary">Statistical<br>Reports</strong></div>
+            <div class="icon"><i class="icon-padnote"></i></div>
+            <p>This page contains the reports for the polling stations and observers</p><p>It shows a statistical view of the entities in the constituency</p>
+          </div></a>
+        </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

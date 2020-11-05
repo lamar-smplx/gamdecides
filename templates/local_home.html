@@ -1,0 +1,31 @@
+{% extends "local_layout.html" %}
+{% block content %}
+<section class="statistics mt-5">
+  <div class="container-fluid">
+    <div class="row d-flex ">
+      <div class="col-lg-4 col-md-4 col-sm-4"><a style="text-decoration: none;color:black" class="ex2" href="opening">
+        <div class="card income text-center shadow p-3" style='min-height:60%'>
+          <div ><strong class="text-primary">Opening<br> Form</strong></div>
+          <div class="icon"><i class="icon-form"></i></div>
+          <p>This form is meant to be filled before voting takes places.</p><p>It is meant to be filled once and should be approved by the observer</p>
+        </div></a>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4"><a style="text-decoration: none;color:black" class="ex2" href="voting">
+          <div class="card income text-center shadow p-3" style='min-height:60%'>
+            <div><strong class="text-primary">Voting<br> Form</strong></div>
+            <div class="icon"><i class="icon-bill"></i></div>
+            <p>This form is meant to be filled during the voting phase.</p><p>It is meant to be filled once and should be approved by the observer</p>
+          </div></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4"><a style="text-decoration: none;color:black" class="ex2" href="closing">
+          <div class="card income text-center shadow p-3" style='min-height:60%'>
+            <div ><strong class="text-primary">Closing<br>Form</strong></div>
+            <div class="icon"><i class="icon-padnote"></i></div>
+            <p>This form is meant to be filled following the voting phase.</p><p>It is meant to be filled once and should be approved by the observer</p>
+          </div></a>
+        </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

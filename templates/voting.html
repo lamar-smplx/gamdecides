@@ -1,0 +1,605 @@
+{% extends "local_layout.html" %}
+{% block content %}
+
+<section class="statistics" style='margin-top: 10px;'>
+    <div class="container-fluid">
+      <div class="row d-flex">
+        <div class="col-lg-12">
+          <!-- Income-->
+          <div class="card income text-left">
+            <div class="container">
+                <br> <h3 class="section-title text-center">Voting Form</h3>
+                <hr>
+                <div class="row justify-content-center">
+                <div class="col-md-12">
+                <div class="card">
+                
+                <article class="card-body">
+                  <form method="POST" action="">
+                    {{ form.hidden_tag() }}
+                        <h5 class="section-title text-left">1.	BASIC INFORMATION </h5>
+                        <hr>
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label>{{form.arrivaltime.label}}</label>
+                                {% if form.arrivaltime.errors %}
+                                {{form.arrivaltime(class="form-control is-invalid")}}
+                                <div class="invalid-feedback">
+                                  {% for error in form.arrivaltime.errors %}
+                                  <span>{{error}}</span>
+                                  {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.arrivaltime(class="form-control")}}
+                                {% endif %}
+                                   
+                            </div> <!-- form-group end.// -->
+                            <div class="col form-group">
+                                <label>{{form.departuretime.label}}</label>
+                                {% if form.departuretime.errors %}
+                                {{form.departuretime(class="form-control is-invalid")}}
+                                <div class="invalid-feedback">
+                                  {% for error in form.departuretime.errors %}
+                                  <span>{{error}}</span>
+                                  {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.departuretime(class="form-control")}}
+                                {% endif %}
+                            </div> <!-- form-group end.// -->
+                        </div>
+                        <hr>
+                        <h5 class="section-title text-left">2.	OUTSIDE THE POLLING STATION </h5>
+                        <hr>
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>1. Is the Polling Station at the address and place designated by IEC</label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q1" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q1" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>2.  Is the polling station easily accessible?</label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q2" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q2" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>3. Are there Police personnel on duty outside the polling station</label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q3" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q3" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>4. Is the atmosphere outside the polling station peaceful and orderly?</label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q4" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" data-toggle="collapse" data-target="#demo1" type="radio" name="q4" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                          <div class=" col-md-12">
+                            <div  id="demo1" class="collapse">
+                              <input placeholder="Please specify" name="q4c" style="border-style: none none solid none" id="inputText3" type="text" class="form-control">
+                          </div>
+                          </div> <!-- form-group end.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>5. Are there voter education material outside/inside the polling station? </label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q5" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q5" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>6. Are there campaign materials in and/or around the polling station? </label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q6" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q6" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>7.  Is the polling station properly laid out to allow steady voting?</label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q7" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q7" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>8. Was the queue control effectively handled and were voters diligently directed to the appropriate polling station?  
+                               </label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q8" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q8" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <hr>
+                        
+                        <h5 class="section-title text-left">3.	PRESENCE INSIDE THE POLLING STATION </h5>
+                        <hr>
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>9.  Were all IEC polling staff present before the opening?(if no, who was not present?)
+                                </label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q9" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" data-toggle="collapse" data-target="#demo12" name="q9" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class=" col-md-12">
+                          <div  id="demo12" class="collapse">
+                            <label class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="q9c" value="Presiding Officer" >
+                              <span class="form-check-label"> Presiding Officer </span>
+                            </label>
+                            <label class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="q9c" value="Assistant Presiding Officer">
+                              <span class="form-check-label"> Assistant Presiding Officer </span>
+                            </label>
+                            <label class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="q9c" value="Polling Officer(s)">
+                              <span class="form-check-label">Polling Officer(s)</span>
+                            </label>
+                            <label class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="q9c" value="Polling Assistant (queue controller)">
+                              <span class="form-check-label">Polling Assistant (queue controller)</span>
+                              <input checked class="form-check-input" type="hidden" name="q9c" value="">
+                            </label>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-10">
+                            <label>10.  Were party agents present at the opening?</label>
+                          </div> <!-- form-group end.// -->
+                          <div class="form-group col-md-2">
+                              <label class="form-check form-check-inline">
+                                  <input class="form-check-input" data-toggle="collapse" data-target="#demo2" type="radio" name="q10" value="Yes" required>
+                                  <span class="form-check-label"> Yes </span>
+                                </label>
+                                <label class="form-check form-check-inline">
+                                  <input class="form-check-input"  type="radio" name="q10" value="No">
+                                  <span class="form-check-label"> No</span>
+                                </label>
+                          </div> <!-- form-group end.// -->
+                      </div> <!-- form-row.// -->
+                        <div class=" col-md-12">
+                          <div  id="demo2" class="collapse">
+                            <input placeholder="From which political party" name="q10c" style="border-style: none none solid none" id="inputText3" type="text" class="form-control">
+                        </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-10">
+                            <label>11.  Was the Media present at the Opening?</label>
+                          </div> <!-- form-group end.// -->
+                          <div class="form-group col-md-2">
+                              <label class="form-check form-check-inline">
+                                  <input class="form-check-input" data-toggle="collapse" data-target="#demo3" type="radio" name="q11" value="Yes" required>
+                                  <span class="form-check-label"> Yes </span>
+                                </label>
+                                <label class="form-check form-check-inline">
+                                  <input class="form-check-input"  type="radio" name="q11" value="No">
+                                  <span class="form-check-label"> No</span>
+                                </label>
+                          </div> <!-- form-group end.// -->
+                      </div> <!-- form-row.// -->
+                        <div class=" col-md-12">
+                          <div  id="demo3" class="collapse">
+                            <input placeholder="From which media house? " name="q11c" style="border-style: none none solid none" id="inputText3" type="text" class="form-control">
+                        </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-10">
+                            <label>12.  Were observers present at the opening?</label>
+                          </div> <!-- form-group end.// -->
+                          <div class="form-group col-md-2">
+                              <label class="form-check form-check-inline">
+                                  <input class="form-check-input" data-toggle="collapse" data-target="#demo4" type="radio" name="q12" value="Yes" required>
+                                  <span class="form-check-label"> Yes </span>
+                                </label>
+                                <label class="form-check form-check-inline">
+                                  <input class="form-check-input"  type="radio" name="q12" value="No">
+                                  <span class="form-check-label"> No</span>
+                                </label>
+                          </div> <!-- form-group end.// -->
+                      </div> <!-- form-row.// -->
+                        <div class=" col-md-12">
+                          <div  id="demo4" class="collapse">
+                            <input placeholder="From which organizations? " name="q12c" style="border-style: none none solid none" id="inputText3" type="text" class="form-control">
+                        </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-10">
+                            <label>13.  Were non-accredited persons allowed inside the polling station?</label>
+                          </div> <!-- form-group end.// -->
+                          <div class="form-group col-md-2">
+                              <label class="form-check form-check-inline">
+                                  <input class="form-check-input" data-toggle="collapse" data-target="#demo5" type="radio" name="q13" value="Yes" required>
+                                  <span class="form-check-label"> Yes </span>
+                                </label>
+                                <label class="form-check form-check-inline">
+                                  <input class="form-check-input"  type="radio" name="q13" value="No">
+                                  <span class="form-check-label"> No</span>
+                                </label>
+                          </div> <!-- form-group end.// -->
+                      </div> <!-- form-row.// -->
+                        <div class=" col-md-12">
+                          <div  id="demo5" class="collapse">
+                            <input placeholder="Who else were present?" name="q13c" style="border-style: none none solid none" id="inputText3" type="text" class="form-control">
+                        </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-10">
+                            <label>14.  Were any other persons present inside the polling station?</label>
+                          </div> <!-- form-group end.// -->
+                          <div class="form-group col-md-2">
+                              <label class="form-check form-check-inline">
+                                  <input class="form-check-input" data-toggle="collapse" data-target="#demo6" type="radio" name="q14" value="Yes" required>
+                                  <span class="form-check-label"> Yes </span>
+                                </label>
+                                <label class="form-check form-check-inline">
+                                  <input class="form-check-input"  type="radio" name="q14" value="No">
+                                  <span class="form-check-label"> No</span>
+                                </label>
+                          </div> <!-- form-group end.// -->
+                      </div> <!-- form-row.// -->
+                        <div class=" col-md-12">
+                          <div  id="demo6" class="collapse">
+                            <input placeholder="Who else was present? " name="q14c" style="border-style: none none solid none" id="inputText3" type="text" class="form-control">
+                        </div>
+                        </div>
+                         <!-- form-row.// --><hr>
+                        <h5 class="section-title text-left"> 4.	COMPLIANCE TO VOTING PROCEDURES </h5>
+                        <hr>
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>15. Were voters required to present their legally acceptable identification for voting? </label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q15" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q15" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>16. Were voters’ identification scrutinized and checked against the voter roll</label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q16" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q16" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>17. Were voters not on the voter roll allowed to vote</label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q17" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q17" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>18. Were voters fingers properly checked for indelible ink before being issued with a ballot-token?</label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q18" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q18" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>19. Was the ink properly applied on voters’ thumbs or fingers?</label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q19" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q19" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>20. Did the Presiding officer ensure that token ballots were properly cast?</label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q20" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q20" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>21. Was assistance provided to voters who require assistance, upon request?</label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q21" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q21" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>22. Was secrecy of the vote guaranteed at all times? </label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q22" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q22" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                          <div class="form-group col-md-10">
+                            <label>23. Did the polling station run out of any election material?</label>
+                          </div> <!-- form-group end.// -->
+                          <div class="form-group col-md-2">
+                              <label class="form-check form-check-inline">
+                                  <input class="form-check-input"  data-toggle="collapse" data-target="#demo7" type="radio" name="q23" value="Yes" required>
+                                  <span class="form-check-label"> Yes </span>
+                                </label>
+                                <label class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="q23" value="No">
+                                  <span class="form-check-label"> No</span>
+                                </label>
+                          </div> <!-- form-group end.// -->
+                      </div> <!-- form-row.// -->
+                        <div class=" col-md-12">
+                          <div  id="demo7" class="collapse">
+                            <input placeholder="Which material(s)?  " name="q23c" style="border-style: none none solid none" id="inputText3" type="text" class="form-control">
+                        </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>24. Did any person(s) interfere with the voting process?</label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" data-toggle="collapse" data-target="#demo9" type="radio" name="q24" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q24" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                          <div class=" col-md-12">
+                            <div  id="demo9" class="collapse">
+                              <input placeholder="Who" name="q24c" style="border-style: none none solid none" id="inputText3" type="text" class="form-control">
+                          </div>
+                          </div>
+                          
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>25. Did you observe any voter being turned away?    </label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" data-toggle="collapse" data-target="#demo10" type="radio" name="q25" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q25" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                          <div class=" col-md-12">
+                            <div  id="demo10" class="collapse">
+                              <input placeholder="Please State why" name="q25c" style="border-style: none none solid none" id="inputText3" type="text" class="form-control">
+                          </div>
+                          </div>
+                          
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                              <label>26. Did you observe any form of irregularity? </label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-2">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" data-toggle="collapse" data-target="#demo11" type="radio" name="q26" value="Yes" required>
+                                    <span class="form-check-label"> Yes </span>
+                                  </label>
+                                  <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q26" value="No">
+                                    <span class="form-check-label"> No</span>
+                                  </label>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                          <div class=" col-md-12">
+                            <div  id="demo11" class="collapse">
+                              <input placeholder="Please Specify" name="q26c" style="border-style: none none solid none" id="inputText3" type="text" class="form-control">
+                          </div>
+                          </div>
+                        <hr>
+                        <h5 class="section-title text-left">5.	OVERALL ASSESSMENT </h5>
+                        <hr>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                              <label>Please give your overall assessment of the opening process: (Tick the appropriate answer) </label>
+                            </div> <!-- form-group end.// -->
+                            
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-11">
+                              <label>Very good – (No significant incidents or irregularities)</label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-1">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q27" value="Very good" required>
+                                  </label>
+                                  
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-11">
+                              <label>Good – (A few incidents or some minor irregularities, but that had no significant effect on the integrity of the process)</label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-1">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q27" value="Good">
+                                  </label>
+                                  
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-11">
+                              <label>Satisfactory – (Incidents or irregularities that significantly affected the integrity of the process </label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-1">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q27" value="Satisfactory">
+                                  </label>
+                                  
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+                            <div class="form-group col-md-11">
+                              <label>Poor – (Incidents of irregularities of such magnitude that the integrity of the process is in doubt)</label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group col-md-1">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="q27" value="Poor">
+                                  </label>
+                                  
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row.// --><hr>
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <textarea name="q28" required rows=5 style="width: 100%; max-width: 100%;" placeholder="Please write down specific comments related to the above questions or any observation you might have which are not covered by any of the questions above."></textarea>
+                          </div> <!-- form-group end.// -->
+                          
+                      </div> <!-- form-row.// -->
+                      <div class="form-group">
+                        {{ form.submit(class="btn btn-outline-info btn-block") }}
+                    </div>
+                        </form>
+                </article> <!-- card-body end .// -->
+                </div> <!-- card.// -->
+                </div> <!-- col.//-->
+                
+                </div> <!-- row.//-->
+                
+                
+                </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}
+
